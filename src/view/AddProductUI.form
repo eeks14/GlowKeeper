@@ -292,7 +292,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="comboCategory" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="358" max="32767" attributes="0"/>
+                      <EmptySpace pref="326" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -310,11 +310,17 @@
             <Component class="javax.swing.JComboBox" name="comboCategory">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="Item 1"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
+                  <StringArray count="10">
+                    <StringItem index="0" value="Face Serum"/>
+                    <StringItem index="1" value="Sunscreen"/>
+                    <StringItem index="2" value="Lip Balm"/>
+                    <StringItem index="3" value="Moisturizer"/>
+                    <StringItem index="4" value="Cleanser"/>
+                    <StringItem index="5" value="Makeup"/>
+                    <StringItem index="6" value="Toner"/>
+                    <StringItem index="7" value="Face Mask"/>
+                    <StringItem index="8" value="Eye Cream"/>
+                    <StringItem index="9" value="Other"/>
                   </StringArray>
                 </Property>
               </Properties>

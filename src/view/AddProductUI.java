@@ -3,7 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package view;
-
+import javax.swing.JOptionPane;
+import model.Product;
+import model.ProductInventory;
+import java.util.List;
 /**
  *
  * @author deekshyarai
@@ -11,13 +14,21 @@ package view;
 public class AddProductUI extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(AddProductUI.class.getName());
-
+    private ProductInventory productInventory;
     /**
      * Creates new form AddProductUI
      */
+    public AddProductUI(ProductInventory productInventory) {
+        initComponents();
+        this.productInventory = productInventory;
+    }
     public AddProductUI() {
         initComponents();
+        this.productInventory = new ProductInventory(); // Creates a fresh inventory
     }
+
+    // Keep your existing one below it
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -229,7 +240,7 @@ public class AddProductUI extends javax.swing.JFrame {
 
         jPanel2.add(jPanel12);
 
-        comboCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Face Serum", "Sunscreen", "Lip Balm", "Moisturizer", "Cleanser", "Makeup", "Toner", "Face Mask", "Eye Cream", "Other" }));
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -238,7 +249,7 @@ public class AddProductUI extends javax.swing.JFrame {
             .addGroup(jPanel11Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(comboCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(358, Short.MAX_VALUE))
+                .addContainerGap(326, Short.MAX_VALUE))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -450,7 +461,30 @@ public class AddProductUI extends javax.swing.JFrame {
     }//GEN-LAST:event_txtProductNameActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-       
+       try {
+            String name = txtProductName.getText();
+            String brand = txtBrand.getText();
+            String category = comboCategory.getSelectedItem().toString();
+            int year = Integer.parseInt(txtExpiryYear.getText());
+            int qty = Integer.parseInt(txtQuantity.getText());
+            String suitability = txtSuitability.getText();
+
+            Product product = new Product(
+                    name, brand, category, year, qty,suitability
+            );
+
+            productInventory.addProduct(product);
+
+            JOptionPane.showMessageDialog(this,
+                    "Product added successfully!");
+            this.dispose();
+
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this,
+                    "Expiry Year and Quantity must be numbers.");
+        } catch (RuntimeException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
@@ -462,6 +496,7 @@ public class AddProductUI extends javax.swing.JFrame {
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
+        
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 

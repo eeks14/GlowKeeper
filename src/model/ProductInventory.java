@@ -5,6 +5,7 @@ import java.util.*;
 
 public class ProductInventory {
     private List<Product> products = new ArrayList<>();
+    
 
     // Check if product name exists (simple exact match)
     private boolean existsByName(String name) {
@@ -15,6 +16,7 @@ public class ProductInventory {
         }
         return false;
     }
+    
 
     // CREATE
     public void addProduct(Product p) {

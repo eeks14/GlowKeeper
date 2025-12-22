@@ -14,10 +14,10 @@ public class Product {
     private String category;
     private int expiryYear;
     private int quantity;
-    private List<String> suitability;
+    private String suitability;
     
     public Product(String productName, String brand,String category, 
-            int expiryYear, int quantity, List<String> suitability){
+            int expiryYear, int quantity, String suitability){
         this.productName= productName;
         this.brand= brand;
         this.category= category;
@@ -46,7 +46,7 @@ public class Product {
         return quantity;
     }
     
-    public List<String> getSuitability(){
+    public  String getSuitability(){
         return suitability;
     }
     
@@ -66,7 +66,7 @@ public class Product {
     public void setQuantity(int quantity) { 
         this.quantity = quantity; 
     }
-    public void setSuitability(List<String> suitability) { 
+    public void setSuitability(String suitability) { 
         this.suitability = suitability; 
     }
     
