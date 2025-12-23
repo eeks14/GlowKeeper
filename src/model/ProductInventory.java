@@ -1,66 +1,49 @@
 package model;
 
 import java.time.Year;
-import java.util.*;
+import java.util.ArrayList;
 
 public class ProductInventory {
-    private List<Product> products = new ArrayList<>();
-    
 
-    // Check if product name exists (simple exact match)
-    private boolean existsByName(String name) {
+    private ArrayList<Product> products;
+
+    public ProductInventory() {
+        products = new ArrayList<>();
+    }
+
+    // ADD PRODUCT
+    public void addProduct(Product product) {
+        if (product.getProductName().trim().isEmpty()) {
+            throw new RuntimeException("Product name cannot be empty");
+        }
+
         for (Product p : products) {
-            if (p.getProductName().equals(name)) {
-                return true;
+            if (p.getProductName().equalsIgnoreCase(product.getProductName())) {
+                throw new RuntimeException("Product already exists");
             }
         }
-        return false;
-    }
-    
 
-    // CREATE
-    public void addProduct(Product p) {
-        if (p.getProductName().isEmpty()) {
-            throw new RuntimeException("Product name is required");
-        }
-        if (existsByName(p.getProductName())) {
-            throw new RuntimeException("Product name already exists");
-        }
         int currentYear = Year.now().getValue();
-        if (p.getExpiryYear() < currentYear || p.getExpiryYear() > currentYear + 5) {
-            throw new RuntimeException("Invalid expiry year");
+        if (product.getExpiryYear() < currentYear ||
+            product.getExpiryYear() > currentYear + 5) {
+            throw new RuntimeException("Expiry year must be within next 5 years");
         }
-        if (p.getQuantity() < 0) {
+
+        if (product.getQuantity() < 0) {
             throw new RuntimeException("Quantity cannot be negative");
         }
 
-        products.add(p);
+        products.add(product);
     }
 
     // READ
-    public List<Product> getAll() {
+    public ArrayList<Product> getAll() {
         return products;
     }
 
     // UPDATE
-    public void updateProduct(int index, Product updated) {
-        if (updated.getProductName().isEmpty()) {
-            throw new RuntimeException("Product name is required");
-        }
-        for (int i = 0; i < products.size(); i++) {
-            if (i != index && products.get(i).getProductName().equals(updated.getProductName())) {
-                throw new RuntimeException("Another product with this name already exists");
-            }
-        }
-        int currentYear = Year.now().getValue();
-        if (updated.getExpiryYear() < currentYear || updated.getExpiryYear() > currentYear + 5) {
-            throw new RuntimeException("Invalid expiry year");
-        }
-        if (updated.getQuantity() < 0) {
-            throw new RuntimeException("Quantity cannot be negative");
-        }
-
-        products.set(index, updated);
+    public void updateProduct(int index, Product product) {
+        products.set(index, product);
     }
 
     // DELETE

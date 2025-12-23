@@ -13,8 +13,8 @@ import java.util.List;
 public class ProductController {
     private ProductInventory inventory;
 
-    public ProductController() {
-        inventory = new ProductInventory();
+    public ProductController(ProductInventory inventory) {
+        this.inventory = inventory;
     }
 
     // CREATE

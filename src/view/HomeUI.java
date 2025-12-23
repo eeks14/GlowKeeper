@@ -105,20 +105,23 @@ public class HomeUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 204, 204));
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
-        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 28)); // NOI18N
-        jLabel1.setText("StyleTrack");
+        jLabel1.setFont(new java.awt.Font("YuMincho +36p Kana", 1, 28)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel1.setText("GlowKeeper");
         jPanel1.add(jLabel1);
 
         jPanel3.setLayout(new java.awt.GridLayout(1, 0));
 
-        jPanel8.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel8.setBackground(new java.awt.Color(204, 204, 204));
 
-        jLabel5.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("YuMincho +36p Kana", 0, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(51, 51, 51));
         jLabel5.setText("Total Products:");
 
-        lblTotalProduct.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        lblTotalProduct.setFont(new java.awt.Font("YuMincho +36p Kana", 0, 18)); // NOI18N
+        lblTotalProduct.setForeground(new java.awt.Color(51, 51, 51));
         lblTotalProduct.setText("0");
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
@@ -144,12 +147,15 @@ public class HomeUI extends javax.swing.JFrame {
 
         jPanel3.add(jPanel8);
 
-        jPanel7.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel7.setBackground(new java.awt.Color(204, 204, 204));
 
-        jLabel2.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jLabel2.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel2.setFont(new java.awt.Font("YuMincho +36p Kana", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
         jLabel2.setText("Expiring This Year:");
 
-        lblExpiring.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        lblExpiring.setFont(new java.awt.Font("YuMincho +36p Kana", 0, 18)); // NOI18N
+        lblExpiring.setForeground(new java.awt.Color(51, 51, 51));
         lblExpiring.setText("0");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
@@ -175,9 +181,10 @@ public class HomeUI extends javax.swing.JFrame {
 
         jPanel3.add(jPanel7);
 
-        jPanel6.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel6.setBackground(new java.awt.Color(204, 204, 204));
 
-        jLabel3.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("YuMincho +36p Kana", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
         jLabel3.setText("Low Stock:");
 
         lblLowStock.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
@@ -206,10 +213,14 @@ public class HomeUI extends javax.swing.JFrame {
 
         jPanel3.add(jPanel6);
 
-        jLabel4.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
+
+        jLabel4.setFont(new java.awt.Font("YuMincho +36p Kana", 0, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
         jLabel4.setText("Recently Added Products");
 
         jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Hoefler Text", 0, 13)); // NOI18N
         jTextArea1.setRows(5);
         jTextArea1.setText("• Face Serum                        \n• Sunscreen SPF 50 \n• Lip Balm \n• Moisturizer\n• Cleanser");
         jScrollPane2.setViewportView(jTextArea1);
@@ -221,7 +232,9 @@ public class HomeUI extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel4))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -230,11 +243,16 @@ public class HomeUI extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
+        jPanel4.setBackground(new java.awt.Color(204, 204, 204));
+
+        btnAddProduct.setBackground(new java.awt.Color(153, 204, 255));
+        btnAddProduct.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        btnAddProduct.setForeground(new java.awt.Color(255, 255, 255));
         btnAddProduct.setText("Add Product");
         btnAddProduct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -242,6 +260,9 @@ public class HomeUI extends javax.swing.JFrame {
             }
         });
 
+        btnViewProduct.setBackground(new java.awt.Color(153, 204, 255));
+        btnViewProduct.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        btnViewProduct.setForeground(new java.awt.Color(255, 255, 255));
         btnViewProduct.setText("View Products");
         btnViewProduct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -249,6 +270,9 @@ public class HomeUI extends javax.swing.JFrame {
             }
         });
 
+        btnExit.setBackground(new java.awt.Color(102, 102, 102));
+        btnExit.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        btnExit.setForeground(new java.awt.Color(255, 255, 255));
         btnExit.setText("Exit");
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -289,7 +313,7 @@ public class HomeUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 692, Short.MAX_VALUE))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 603, Short.MAX_VALUE))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -306,7 +330,7 @@ public class HomeUI extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         pack();
@@ -318,8 +342,15 @@ public class HomeUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddProductActionPerformed
 
     private void btnViewProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewProductActionPerformed
-        ProductListUI productListUI = new ProductListUI(inventory);
-        productListUI.setVisible(true);
+    ProductListUI productListUI = new ProductListUI(inventory);
+    productListUI.setVisible(true); // show the window
+
+    productListUI.addWindowListener(new java.awt.event.WindowAdapter() {
+        @Override
+        public void windowClosed(java.awt.event.WindowEvent windowEvent) {
+            updateDashboard(); 
+        }
+    });
     }//GEN-LAST:event_btnViewProductActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
