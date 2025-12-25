@@ -5,13 +5,13 @@
 package view;
 import model.ProductInventory;
 import model.Product;
-
 /**
  *
  * @author deekshyarai
  */
 public class HomeUI extends javax.swing.JFrame {
      private ProductInventory inventory;
+     
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(HomeUI.class.getName());
     private void updateDashboard() {
@@ -46,15 +46,24 @@ public class HomeUI extends javax.swing.JFrame {
 
         jTextArea1.setText(recent.toString());
     }
+    private void logout() {
+        
+        this.dispose();
+        
+        new LoginUI().setVisible(true);
+    }
+    
 
         /**
      * Creates new form HomeUI
      */
     public HomeUI(ProductInventory inventory) {
         this.inventory = inventory;
+        
         initComponents();
         updateDashboard();   // updates labels
         setLocationRelativeTo(null);
+        
         this.addWindowFocusListener(new java.awt.event.WindowFocusListener() {
         @Override
         public void windowGainedFocus(java.awt.event.WindowEvent e) {
@@ -68,6 +77,7 @@ public class HomeUI extends javax.swing.JFrame {
     });
 
     }
+    
     
 
     
@@ -101,6 +111,7 @@ public class HomeUI extends javax.swing.JFrame {
         btnAddProduct = new javax.swing.JButton();
         btnViewProduct = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 204, 204));
@@ -280,6 +291,13 @@ public class HomeUI extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Logout");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -289,9 +307,11 @@ public class HomeUI extends javax.swing.JFrame {
                 .addComponent(btnAddProduct)
                 .addGap(75, 75, 75)
                 .addComponent(btnViewProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(52, 52, 52)
                 .addComponent(btnExit)
-                .addGap(18, 18, 18))
+                .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -300,7 +320,8 @@ public class HomeUI extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAddProduct, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnViewProduct, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnExit))
+                    .addComponent(btnExit)
+                    .addComponent(jButton1))
                 .addGap(20, 20, 20))
         );
 
@@ -313,12 +334,11 @@ public class HomeUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 603, Short.MAX_VALUE))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 603, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(67, 67, 67))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -357,6 +377,10 @@ public class HomeUI extends javax.swing.JFrame {
          System.exit(0);
     }//GEN-LAST:event_btnExitActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        logout();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -394,6 +418,7 @@ public class HomeUI extends javax.swing.JFrame {
     private javax.swing.JButton btnAddProduct;
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnViewProduct;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
