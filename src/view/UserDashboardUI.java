@@ -6,6 +6,7 @@ package view;
 import java.awt.CardLayout;
 import model.ProductInventory;
 import controller.ProductController;
+import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -744,9 +745,14 @@ public class UserDashboardUI extends javax.swing.JFrame {
 
         // BINARY SEARCH
         if (type.equals("Product Name")) {
-            int index = productController.binarySearchByName(key);
+            ArrayList<Product> products = inventory.getAll();
+
+            
+            productController.bubbleSortByName(products); 
+
+            int index = productController.binarySearchByName(products, key);
             if (index != -1) {
-                Product p = inventory.getAll().get(index);
+                Product p = products.get(index);
                 model.addRow(new Object[]{
                     p.getProductName(), p.getBrand(),
                     p.getCategory(), p.getExpiryYear()
@@ -754,13 +760,24 @@ public class UserDashboardUI extends javax.swing.JFrame {
             } else {
                 JOptionPane.showMessageDialog(this, "No product found");
             }
-        }
-
+        } 
         else if (type.equals("Expiry Year")) {
-            int index = productController.binarySearchByExpiry(
-                        Integer.parseInt(key));
+            ArrayList<Product> products = inventory.getAll();
+
+            
+            productController.bubbleSortByExpiry(products); 
+
+            int year;
+            try {
+                year = Integer.parseInt(key);
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(this, "Please enter a valid year.");
+                return;
+            }
+
+            int index = productController.binarySearchByExpiry(products, year);
             if (index != -1) {
-                Product p = inventory.getAll().get(index);
+                Product p = products.get(index);
                 model.addRow(new Object[]{
                     p.getProductName(), p.getBrand(),
                     p.getCategory(), p.getExpiryYear()
