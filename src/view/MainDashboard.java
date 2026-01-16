@@ -947,8 +947,8 @@ public class MainDashboard extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(add1btn, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(add1btn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(viewbtn))
                 .addContainerGap())
         );
@@ -1568,9 +1568,9 @@ public class MainDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        int selectedRow = jTable3.getSelectedRow();  // get selected row in table
+        int selectedRow = jTable3.getSelectedRow();  
     
-        if (selectedRow >= 0) {  // make sure a row is selected
+        if (selectedRow >= 0) {  
             int confirm = JOptionPane.showConfirmDialog(this, 
                 "Are you sure you want to delete selected product?", "Confirm Delete", 
                 JOptionPane.YES_NO_OPTION);
@@ -1685,8 +1685,8 @@ public class MainDashboard extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) jTable3.getModel();
         model.setRowCount(0);
 
-        // Assuming 'products' is already declared somewhere above this code
-        productController.bubbleSortByName(products);
+ 
+        productController.insertionSortByName(products);
 
         if (type.equals("Product Name")) {
             int index = productController.binarySearchByName(products, key);
@@ -1701,8 +1701,6 @@ public class MainDashboard extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "No product found");
             }
         }
-  
-
         else if (type.equals("Expiry Year")) {
             try {
                 int year = Integer.parseInt(key);
@@ -1727,7 +1725,7 @@ public class MainDashboard extends javax.swing.JFrame {
         else if (type.equals("Brand")) {
             
 
-            // Call linear search by Brand with list and key
+            
             ArrayList<Product> results = productController.linearSearchByBrand(products, key);
 
             if (results.isEmpty()) {

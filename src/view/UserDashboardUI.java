@@ -748,7 +748,7 @@ public class UserDashboardUI extends javax.swing.JFrame {
             ArrayList<Product> products = inventory.getAll();
 
             
-            productController.bubbleSortByName(products); 
+            productController.insertionSortByName(products); 
 
             int index = productController.binarySearchByName(products, key);
             if (index != -1) {
@@ -765,7 +765,7 @@ public class UserDashboardUI extends javax.swing.JFrame {
             ArrayList<Product> products = inventory.getAll();
 
             
-            productController.bubbleSortByExpiry(products); 
+            productController.selectionSortByExpiry(products); 
 
             int year;
             try {
